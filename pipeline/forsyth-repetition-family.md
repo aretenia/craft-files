@@ -120,7 +120,7 @@ The immediate triple makes the word the only thing in the room. Used once, it is
 
 **When to reach for it.** When you want the effect of repetition without the flatness of saying the same word twice. Polyptoton rewards a reader who notices the root recurring in a new shape.
 
-**How it tends to fail.** It is the most easily overclever of the family; pushed, it reads as wordplay for its own sake. And if the two forms do not actually illuminate each other, the cleverness is empty.
+**How it tends to fail.** It is the most easily overclever of the family; pushed, it reads as wordplay for its own sake. And if the two forms do not actually sharpen each other, the cleverness is empty.
 
 **Example.** "A leader who will not lead is just a title."
 
@@ -166,7 +166,7 @@ The cardinal rule: repetition works by being deliberate. The reader has to feel 
 
 ## What this file does not cover
 
-Forsyth covers more repetition-adjacent figures than these eight: epanalepsis (the same word opening and closing a clause), symploce (anaphora and epistrophe at once), and polysyndeton and asyndeton (deliberately repeating or dropping conjunctions). The surprise family, the figures that work by reversal, is in the companion Forsyth file. For the rest of the book's families, sound, substitution, and arrangement, and for any figure outside both files, Silva Rhetoricae (rhetoric.byu.edu) is a free and comprehensive reference, organized by both name and function.
+Forsyth covers more repetition-adjacent figures than these eight: epanalepsis (the same word opening and closing a clause), symploce (anaphora and epistrophe at once), and polysyndeton and asyndeton (deliberately repeating or dropping conjunctions). The surprise family, the figures that work by reversal, is in the companion Forsyth file. For the rest of the book's families, sound, substitution, and arrangement, and for any figure outside both files, Silva Rhetoricae (rhetoric.byu.edu) is a free reference covering every family, organized by both name and function.
 
 ---
 

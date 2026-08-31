@@ -1,0 +1,476 @@
+{
+ "spec_version": "1.1",
+ "legend_version": 4,
+ "desk_id": "craft-files",
+ "run_counter": 18,
+ "snapshot": "t2: pipeline run 18. Seventeen runs after the Rupture pass; most of these cells never fired again. Human-readable only.",
+ "profile_lineage": [
+  "default"
+ ],
+ "cells": {
+  "H0.*": {
+   "kind": "formal",
+   "mode": "count",
+   "dir": "ceiling",
+   "target": 0,
+   "sd": 0,
+   "state": "fired",
+   "weight": 1.0,
+   "last_fired_run": 1,
+   "last_fired": "2026-07-07",
+   "definition_ref": "dict#h0",
+   "drift_note": null,
+   "provenance_refs": [
+    101
+   ]
+  },
+  "H1.1": {
+   "kind": "formal",
+   "mode": "count",
+   "dir": "ceiling",
+   "target": 3,
+   "sd": 2,
+   "state": "revised",
+   "weight": 0.85,
+   "last_fired_run": 1,
+   "last_fired": "2026-07-07",
+   "definition_ref": "dict#h11",
+   "drift_note": "spacing prior inverted for this hand: normalize toward spaced, never closed",
+   "provenance_refs": [
+    104,
+    105
+   ]
+  },
+  "H1.2": {
+   "kind": "formal",
+   "mode": "count",
+   "dir": "ceiling",
+   "target": 2,
+   "sd": 1,
+   "state": "validated",
+   "weight": 0.8,
+   "last_fired_run": 12,
+   "last_fired": "2026-08-02",
+   "definition_ref": "dict#h12",
+   "drift_note": "cohort drifts by model generation",
+   "provenance_refs": [
+    102,
+    117
+   ]
+  },
+  "H1.3": {
+   "kind": "formal",
+   "mode": "count",
+   "dir": "ceiling",
+   "target": 1,
+   "sd": 1,
+   "state": "fired",
+   "weight": 0.7,
+   "last_fired_run": 1,
+   "last_fired": "2026-07-07",
+   "definition_ref": "dict#h13",
+   "drift_note": null,
+   "provenance_refs": [
+    103
+   ]
+  },
+  "H1.4": {
+   "kind": "formal",
+   "mode": "count",
+   "dir": "ceiling",
+   "target": 3,
+   "sd": 1,
+   "state": "validated",
+   "weight": 0.6,
+   "last_fired_run": 1,
+   "last_fired": "2026-07-07",
+   "definition_ref": "dict#h14",
+   "drift_note": "serial comma required by the counter",
+   "provenance_refs": [
+    106
+   ]
+  },
+  "H1.5": {
+   "kind": "formal",
+   "mode": "rule",
+   "dir": "ceiling",
+   "target": null,
+   "sd": null,
+   "state": null,
+   "weight": 0.5,
+   "last_fired_run": null,
+   "last_fired": null,
+   "definition_ref": "dict#h15",
+   "drift_note": null,
+   "provenance_refs": []
+  },
+  "H1.6": {
+   "kind": "formal",
+   "mode": "count",
+   "dir": "ceiling",
+   "target": 0,
+   "sd": 0,
+   "state": null,
+   "weight": 1.0,
+   "last_fired_run": null,
+   "last_fired": null,
+   "definition_ref": "dict#h16",
+   "drift_note": null,
+   "provenance_refs": []
+  },
+  "H2.3": {
+   "kind": "formal",
+   "mode": "count",
+   "dir": "ceiling",
+   "target": 2,
+   "sd": 1,
+   "state": null,
+   "weight": 0.5,
+   "last_fired_run": null,
+   "last_fired": null,
+   "definition_ref": "dict#h23",
+   "drift_note": null,
+   "provenance_refs": []
+  },
+  "H2.4": {
+   "kind": "formal",
+   "mode": "count",
+   "dir": "ceiling",
+   "target": 1,
+   "sd": 1,
+   "state": null,
+   "weight": 0.5,
+   "last_fired_run": null,
+   "last_fired": null,
+   "definition_ref": "dict#h24",
+   "drift_note": null,
+   "provenance_refs": []
+  },
+  "H2.5": {
+   "kind": "formal",
+   "mode": "count",
+   "dir": "ceiling",
+   "target": 1,
+   "sd": 1,
+   "state": null,
+   "weight": 0.5,
+   "last_fired_run": null,
+   "last_fired": null,
+   "definition_ref": "dict#h25",
+   "drift_note": null,
+   "provenance_refs": []
+  },
+  "H2.10": {
+   "kind": "formal",
+   "mode": "rule",
+   "dir": "ceiling",
+   "target": 4,
+   "sd": 1,
+   "state": "fired",
+   "weight": 0.6,
+   "last_fired_run": 1,
+   "last_fired": "2026-07-07",
+   "definition_ref": "dict#h210",
+   "drift_note": null,
+   "provenance_refs": [
+    107
+   ]
+  },
+  "H3.2": {
+   "kind": "formal",
+   "mode": "count",
+   "dir": "floor",
+   "target": 8,
+   "sd": 3,
+   "state": "validated",
+   "weight": 0.7,
+   "last_fired_run": 1,
+   "last_fired": "2026-07-07",
+   "definition_ref": "dict#h32",
+   "drift_note": "proxy: capitalization fools it; judgment overrides",
+   "provenance_refs": [
+    108
+   ]
+  },
+  "H3.3": {
+   "kind": "formal",
+   "mode": "rule",
+   "dir": null,
+   "target": null,
+   "sd": null,
+   "state": null,
+   "weight": 1.0,
+   "last_fired_run": null,
+   "last_fired": null,
+   "definition_ref": "dict#h33",
+   "drift_note": null,
+   "provenance_refs": []
+  },
+  "H4.3": {
+   "kind": "formal",
+   "mode": "rule",
+   "dir": null,
+   "target": null,
+   "sd": null,
+   "state": "fired",
+   "weight": 0.4,
+   "last_fired_run": 1,
+   "last_fired": "2026-07-07",
+   "definition_ref": "dict#h43",
+   "drift_note": null,
+   "provenance_refs": [
+    109
+   ]
+  },
+  "INF-001": {
+   "kind": "informal",
+   "mode": "rule",
+   "dir": "ceiling",
+   "target": 0,
+   "sd": 0,
+   "state": "validated",
+   "weight": 0.6,
+   "last_fired_run": 1,
+   "last_fired": "2026-07-07",
+   "definition_ref": "companion#inf-001-sincerity-preamble",
+   "drift_note": null,
+   "provenance_refs": [
+    110,
+    111
+   ]
+  },
+  "INF-002": {
+   "kind": "informal",
+   "mode": "rule",
+   "dir": null,
+   "target": null,
+   "sd": null,
+   "state": "validated",
+   "weight": 0.6,
+   "last_fired_run": 1,
+   "last_fired": "2026-07-07",
+   "definition_ref": "companion#inf-002-first-person-modesty",
+   "drift_note": "promoted from cluster U-001 on the writer's ratification; named at run 13, recorded in named_on_run. The curation-event tuple recording the ratification itself is deferred until curation events exist as a tuple kind.",
+   "provenance_refs": [
+    112,
+    113,
+    114,
+    115,
+    116
+   ],
+   "named_on_run": 13
+  }
+ },
+ "undefined_region": [],
+ "reel": [
+  {
+   "seq": 101,
+   "run": 1,
+   "t": "2026-07-07",
+   "author": "Proprietor",
+   "artifact": "Rupture_V2.md",
+   "artifact_label": "machine pass output",
+   "rule_id": "H0.*",
+   "direction": "stand",
+   "model": "claude-fable-5 (2026-07)",
+   "evidence": null
+  },
+  {
+   "seq": 102,
+   "run": 1,
+   "t": "2026-07-07",
+   "author": "Proprietor",
+   "artifact": "Rupture_V2.md",
+   "artifact_label": "machine pass output",
+   "rule_id": "H1.2",
+   "direction": "stand",
+   "model": "claude-fable-5 (2026-07)",
+   "evidence": null
+  },
+  {
+   "seq": 103,
+   "run": 1,
+   "t": "2026-07-07",
+   "author": "Proprietor",
+   "artifact": "Rupture_V2.md",
+   "artifact_label": "machine pass output",
+   "rule_id": "H1.3",
+   "direction": "stand",
+   "model": "claude-fable-5 (2026-07)",
+   "evidence": null
+  },
+  {
+   "seq": 104,
+   "run": 1,
+   "t": "2026-07-07",
+   "author": "Proprietor",
+   "artifact": "Rupture_V3.docx",
+   "artifact_label": "human edits after the V2 pass",
+   "rule_id": "H1.1",
+   "direction": "human_strike",
+   "model": "claude-fable-5 (2026-07)",
+   "evidence": "rupture-v2.evidence.md#h11-1"
+  },
+  {
+   "seq": 105,
+   "run": 1,
+   "t": "2026-07-07",
+   "author": "Proprietor",
+   "artifact": "Rupture_V3.docx",
+   "artifact_label": "human edits after the V2 pass",
+   "rule_id": "H1.1",
+   "direction": "human_strike",
+   "model": "claude-fable-5 (2026-07)",
+   "evidence": "rupture-v2.evidence.md#h11-2"
+  },
+  {
+   "seq": 106,
+   "run": 1,
+   "t": "2026-07-07",
+   "author": "Proprietor",
+   "artifact": "Rupture_V2.md",
+   "artifact_label": "machine pass output",
+   "rule_id": "H1.4",
+   "direction": "stand",
+   "model": "claude-fable-5 (2026-07)",
+   "evidence": "rupture-v2.evidence.md#h14-1"
+  },
+  {
+   "seq": 107,
+   "run": 1,
+   "t": "2026-07-07",
+   "author": "Proprietor",
+   "artifact": "Rupture_V2.md",
+   "artifact_label": "machine pass output",
+   "rule_id": "H2.10",
+   "direction": "stand",
+   "model": "claude-fable-5 (2026-07)",
+   "evidence": "rupture-v2.evidence.md#h210-1"
+  },
+  {
+   "seq": 108,
+   "run": 1,
+   "t": "2026-07-07",
+   "author": "Proprietor",
+   "artifact": "Rupture_V2.md",
+   "artifact_label": "machine pass output",
+   "rule_id": "H3.2",
+   "direction": "stand",
+   "model": "claude-fable-5 (2026-07)",
+   "evidence": null
+  },
+  {
+   "seq": 109,
+   "run": 1,
+   "t": "2026-07-07",
+   "author": "Proprietor",
+   "artifact": "Rupture_V4.docx",
+   "artifact_label": "ship candidate; V3 accepted plus two approved fixes",
+   "rule_id": "H4.3",
+   "direction": "stand",
+   "model": "claude-fable-5 (2026-07)",
+   "evidence": null
+  },
+  {
+   "seq": 110,
+   "run": 1,
+   "t": "2026-07-07",
+   "author": "Proprietor",
+   "artifact": "Rupture_V3.docx",
+   "artifact_label": "human edits after the V2 pass",
+   "rule_id": "INF-001",
+   "direction": "human_strike",
+   "model": "claude-fable-5 (2026-07)",
+   "evidence": "Rupture_V3.docx#rev-47"
+  },
+  {
+   "seq": 111,
+   "run": 1,
+   "t": "2026-07-07",
+   "author": "Proprietor",
+   "artifact": "Rupture_V3.docx",
+   "artifact_label": "human edits after the V2 pass",
+   "rule_id": "INF-001",
+   "direction": "human_strike",
+   "model": "claude-fable-5 (2026-07)",
+   "evidence": "Rupture_V3.docx#rev-46"
+  },
+  {
+   "seq": 112,
+   "run": 1,
+   "t": "2026-07-07",
+   "author": "Proprietor",
+   "artifact": "Rupture_V3.docx",
+   "artifact_label": "human edits after the V2 pass",
+   "rule_id": null,
+   "direction": "human_add",
+   "model": "claude-fable-5 (2026-07)",
+   "evidence": "Rupture_V3.docx#rev-12",
+   "cluster_id": "U-001"
+  },
+  {
+   "seq": 113,
+   "run": 1,
+   "t": "2026-07-07",
+   "author": "Proprietor",
+   "artifact": "Rupture_V3.docx",
+   "artifact_label": "human edits after the V2 pass",
+   "rule_id": null,
+   "direction": "human_add",
+   "model": "claude-fable-5 (2026-07)",
+   "evidence": "Rupture_V3.docx#rev-17",
+   "cluster_id": "U-001"
+  },
+  {
+   "seq": 114,
+   "run": 1,
+   "t": "2026-07-07",
+   "author": "Proprietor",
+   "artifact": "Rupture_V3.docx",
+   "artifact_label": "human edits after the V2 pass",
+   "rule_id": null,
+   "direction": "human_add",
+   "model": "claude-fable-5 (2026-07)",
+   "evidence": "Rupture_V3.docx#rev-26",
+   "cluster_id": "U-001"
+  },
+  {
+   "seq": 115,
+   "run": 1,
+   "t": "2026-07-07",
+   "author": "Proprietor",
+   "artifact": "Rupture_V3.docx",
+   "artifact_label": "human edits after the V2 pass",
+   "rule_id": null,
+   "direction": "human_add",
+   "model": "claude-fable-5 (2026-07)",
+   "evidence": "Rupture_V3.docx#rev-28",
+   "cluster_id": "U-001"
+  },
+  {
+   "seq": 116,
+   "run": 1,
+   "t": "2026-07-07",
+   "author": "Proprietor",
+   "artifact": "Rupture_V3.docx",
+   "artifact_label": "human edits after the V2 pass",
+   "rule_id": null,
+   "direction": "human_add",
+   "model": "claude-fable-5 (2026-07)",
+   "evidence": "Rupture_V3.docx#rev-25",
+   "cluster_id": "U-001"
+  },
+  {
+   "seq": 117,
+   "run": 12,
+   "t": "2026-08-02",
+   "author": "Proprietor",
+   "artifact": "later-essay.md",
+   "artifact_label": "machine pass output",
+   "rule_id": "H1.2",
+   "direction": "stand",
+   "model": "claude-fable-5 (2026-08)",
+   "evidence": "later-essay.evidence.md#h12-1"
+  }
+ ]
+}
