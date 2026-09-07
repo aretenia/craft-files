@@ -65,8 +65,11 @@ def test_structure():
                 bad.append(os.path.join(root, f))
     check("no platform-mangled filenames", not bad, str(bad))
 
-    pyc = [os.path.join(r, f) for r, _, fs in os.walk(".") if ".git" not in r
-           for f in fs if f.endswith(".pyc")]
+    # "committed" means committed. The old form walked the working tree, but
+    # .pyc files are gitignored, so the check failed on any checkout where
+    # anything had been run, including a release run of this very file.
+    tracked = run(["git", "ls-files"]).stdout.splitlines()
+    pyc = [f for f in tracked if f.endswith(".pyc") or "__pycache__/" in f]
     check("no committed bytecode", not pyc, str(pyc[:3]))
 
 
@@ -292,6 +295,83 @@ def test_skills():
           subs <= real, f"named but absent: {sorted(subs - real)}")
 
 
+# ---------------------------------------------------------- V3.4 acceptance
+def test_v34():
+    """Spec section 7 of skills/craft-v3.4-spec.md, the mechanical half."""
+    section("V3.4: drafts made visible")
+    spec = "skills/craft-v3.4-spec.md"
+    check("the spec ships with the library", os.path.isfile(spec))
+    if os.path.isfile(spec):
+        text = open(spec, encoding="utf-8").read()
+        check("the spec carries its acceptance section", "## 7. Acceptance" in text)
+
+    for d in ("skills/draft-provenance", "skills/text-layers"):
+        check(f"{d}/SKILL.md present", os.path.isfile(f"{d}/SKILL.md"))
+
+    # the self-test proves the tracked-changes reader on a positive fixture
+    fixture = "skills/draft-provenance/scripts/fixtures/tracked-changes.docx"
+    check("the tracked-changes fixture ships", os.path.isfile(fixture))
+    st = run([sys.executable, "selftest.py"],
+             cwd="skills/draft-provenance/scripts")
+    check("scripts/selftest.py passes", st.returncode == 0,
+          (st.stderr or st.stdout)[-300:])
+
+    # the locked face set, and only it
+    fonts = "skills/text-layers/assets/fonts"
+    if os.path.isdir(fonts):
+        faces = sorted(f for f in os.listdir(fonts) if f.endswith(".ttf"))
+        check("two locked faces only",
+              faces == ["Alegreya-Variable.ttf", "Recursive-Variable.ttf"],
+              str(faces))
+        licences = sorted(f for f in os.listdir(fonts) if f.startswith("OFL"))
+        check("each shipped face carries its OFL licence", len(licences) == 2,
+              str(licences))
+    check("the exploration script stays out of the library",
+          not os.path.isfile("skills/text-layers/scripts/font_pairings.py"))
+
+    # the two renderers agree on the locked relative face size
+    rl = open("skills/text-layers/scripts/render_layers.py", encoding="utf-8").read()
+    rh = open("skills/text-layers/scripts/render_html.py", encoding="utf-8").read()
+    check("the review sheet defaults to the locked pair",
+          'FONTS / "Alegreya-Variable.ttf"' in rl
+          and 'FONTS / "Recursive-Variable.ttf"' in rl)
+    check("both renderers use the locked 0.907 relative face size",
+          '"--sans-factor", type=float, default=0.95' in rl
+          and '"--machine-scale", type=float, default=0.907' in rh)
+
+    # the record never infers a ruling
+    prov = open("skills/draft-provenance/scripts/provenance.py",
+                encoding="utf-8").read()
+    check("a ruling carries its evidence source", '"source"' in prov)
+    check("the pass-level ruling is tri-state, not a boolean",
+          '"unrecorded"' in prov and '"unruled"' in prov)
+
+    # the two halting audit conditions stop the run
+    check("the audit halts rather than deriving past a question",
+          "--accept-audit" in prov and "the audit halts on" in prov)
+    check("a genuinely small pass is a note, not a halt",
+          "consider labelling it mechanical" in prov)
+
+    # the flags are in the registry
+    flags = open("pipeline/pipeline-flags.md", encoding="utf-8").read()
+    for f in ("--provenance", "--layers", "--layers-out", "--package",
+              "--heat-floor", "--min-minority"):
+        check(f"{f} is in the flag registry", f"`{f}`" in flags)
+    check("the two provenance flags are disambiguated",
+          "Two flags share a stem" in flags)
+
+    # the README names the release without claiming the grid render exists
+    # markdown here is hard-wrapped, so probe prose with whitespace collapsed
+    readme = re.sub(r"\s+", " ", open("README.md", encoding="utf-8").read())
+    check("the README names 3.4", "*Version 3.4," in readme)
+    check("the README names the release where a picture exists",
+          "Version 3.4 is the release where a picture exists" in readme)
+    check("the README keeps the grid renderer's absence honest",
+          "grid's own picture" in readme
+          and "still not built" in readme
+          and "V3.4 draws the drafts, not the grid" in readme)
+
+
 def main():
     if not os.path.isfile("scrub-gate.py"):
         sys.exit("run this from the repository root")
@@ -304,6 +384,7 @@ def main():
     test_workflow()
     test_generator_invariants()
     test_skills()
+    test_v34()
     print(f"\n{CHECKS[0] - len(FAILS)}/{CHECKS[0]} checks passed")
     if FAILS:
         print("failures:")

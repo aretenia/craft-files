@@ -1,6 +1,6 @@
 # Brinkman's craft files
 
-*Version 3.3, July 2026. See `CHANGELOG.md` for what changed.*
+*Version 3.4, September 2026. See `CHANGELOG.md` for what changed.*
 
 Thirteen short files that distill writing craft, and the machine artifacts
 that betray its absence, into operational guidance for an AI
@@ -48,13 +48,36 @@ model, and its rules were
 tested by compiling this library through them and measuring the
 result against the library's own behavioral evaluation.
 
+Version 3.4 is the release where a picture exists. The library already kept a
+record of how a document changed; now that record carries what a picture
+needs, and two flags draw it. `--layers` renders a piece with its drafts
+showing through: one face for the words a person typed and another for the
+words a machine typed, colour on the sentences both hands wrote, a red rule
+under words a later draft brought back from an earlier one, and a mark in the
+margin where a sentence was rewritten many times over. `--package` builds the
+piece with every draft, the record, and the renders together. The record grew
+a rule worth naming on its own: a ruling is a per-edit fact and never a bare
+pass-level boolean, because a boolean cannot tell "the writer did not rule"
+from "nobody wrote it down," and the library will say `unrecorded` rather than
+guess. The two flags and their thresholds are in `pipeline/pipeline-flags.md`;
+the specification is `skills/craft-v3.4-spec.md`; the implementations are the
+`draft-provenance` and `text-layers` skills. The worked example is the ten
+drafts of an essay called "Rupture," rendered at
+<https://slopshops.ai/essay-04-rupture/layers/>.
+
+**Which renderer.** V3.4 draws the drafts, not the grid. The grid's own
+picture, described below and promised since version three, is still not built.
+Two different renderers, two different subjects: one shows how a document
+changed across its drafts, the other would show which of these rules earned
+their place at a desk. The first now exists. The second does not.
+
 ## Repository layout
 
 The craft files live in `pipeline/`: drop that folder into a project and
 the pipeline is what an assistant reads. The gate and its tools sit at the
 repository root, `scrub-gate.py` with `machinelexicon.csv` beside it and
 `ship-check.py` for canon edits, so the invocation examples below run from
-root. Two agent skills are in `skills/`, one folder each. The accretion
+root. Four agent skills are in `skills/`, one folder each. The accretion
 organism, an experimental layer that records which of these rules a real
 editing pass keeps, has its specifications and frozen fixtures in `grid/`
 and its generator in `craftgen/`; none of it runs unless you turn it on,
@@ -223,7 +246,9 @@ renders a grid, so what you get back from a real pass is JSON. Read it or write
 your own renderer; the specification and the fixtures are in `grid/`, and the
 tone ramp and fade table are published there. This is the one part of the
 library that promises more than it delivers, and it is marked here rather than
-discovered later.
+discovered later. Note that this is the grid's renderer and not the drafts
+renderer that V3.4 ships: `--layers` draws a document's drafts and works, and
+nothing about it makes a grid frame exist.
 
 Both steps run wherever your agent runs. The accretion conversation is a
 conversation, and the generator is eight files an agent with a sandbox can

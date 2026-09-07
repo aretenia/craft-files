@@ -4,6 +4,75 @@ What changed in each version of this library. Versions before 3.1 are reconstruc
 from the README's own version narrative, since no changelog was kept at the
 time; entries for 3.1 and 3.2 are written from the record.
 
+## 3.4, September 2026
+
+Drafts made visible. The provenance record grew to carry what a picture needs,
+and the library gained the code that draws it.
+
+### Added
+
+- The draft-chain record, specified in `skills/craft-v3.4-spec.md` section 2.
+  One entry per pass written at the handoff, with a full text snapshot rather
+  than a diff, because a snapshot is what makes a chain auditable years later.
+  Each entry carries the pass label, the agent, the ruling with its evidence
+  class, a timestamp, the model where there was one, and any moves.
+- `skills/draft-provenance`, which reads a chain of drafts and derives the
+  per-word record: for every word of the final text, who typed it, which
+  hands touched it, whether a later human pass kept it, whether it came back
+  from an earlier draft, and how many passes rewrote its sentence.
+- `skills/text-layers`, which reads that record and draws the piece: PNG
+  sheets at the column measure for review, and one self-contained HTML for
+  reading that embeds both faces, makes no external request, and opens on a
+  phone with no network.
+- Six flags in `pipeline/pipeline-flags.md`: `--provenance` (always on),
+  `--layers`, `--layers-out`, `--package`, `--heat-floor`, `--min-minority`.
+- The two locked faces, Alegreya for the person and Recursive for the
+  machine, with their OFL licences, in `skills/text-layers/assets/`.
+- A positive tracked-changes fixture and `scripts/selftest.py`, both part of
+  release acceptance.
+- V3.4 checks in `accept.py`, covering the audit halts, the self-test, the
+  self-containedness of the HTML, and the locked face set.
+
+### Changed
+
+- **A ruling is a per-edit fact, not a pass-level boolean.** The record
+  carries `ruled` per edit where a ruling actually happened, and derives a
+  pass-level summary that is tri-state (`ruled`, `unruled`, `unrecorded`) and
+  always carries its source (`event`, `header`, `attestation`,
+  `unrecorded`). A boolean cannot tell "the writer did not rule" from
+  "nobody wrote it down," and the library will say `unrecorded` rather than
+  infer. No existing pipeline event establishes that a writer ruled every
+  change in a pass, so the library never claims one.
+- The audit table prints before any render, with shares to four places and
+  per-pass flags, and two of its conditions stop the run with a question: a
+  pass identical to the draft before it, whichever hand made it, and a pass
+  labelled human that changed more than half the words. A genuinely small
+  pass passes with a note. Shares are never rounded into a decision.
+  `--accept-audit` records that a question was read and proceeds.
+
+### Fixed
+
+- The tracked-changes reader was silently inert. It parsed the document
+  twice and marked insertions on the tree it did not walk, so no insertion
+  could ever have been flagged, and no chain in hand had surviving tracked
+  changes to expose it. Found by asking for a positive fixture, fixed, and
+  now proven by one.
+- The record and render scripts read and wrote JSON with no encoding
+  specified, so on Windows they used the ANSI code page and raised on the
+  record's own characters. The library's writer works on Windows; the
+  release would not have run for him.
+- The review-sheet renderer required a Pillow built with libraqm and raised
+  rather than degrading when the OpenType features it asked for were
+  unavailable, which is the stock Windows wheel. It now drops the ligature
+  settings, says so, and draws the sheet.
+- The review sheet drew the two faces at the x-height match, 0.955, while
+  the HTML used the locked 0.907, so the two renders disagreed on relative
+  face size, which acceptance compares. The locked instance is now the
+  default on both sides.
+- `accept.py`'s "no committed bytecode" check walked the working tree for
+  `.pyc` files, which are gitignored and untracked, so it failed on any
+  checkout where anything had been run. It now asks git what is tracked.
+
 ## 3.3, July 2026
 
 Two threads landed together: the accretion organism gained its first code and
