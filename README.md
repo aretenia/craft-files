@@ -48,6 +48,8 @@ model, and its rules were
 tested by compiling this library through them and measuring the
 result against the library's own behavioral evaluation.
 
+<img width="2160" height="2700" alt="rupture-layers-infographic" src="https://github.com/user-attachments/assets/7ed740fc-27d7-4908-9f15-ed2d5c03a01b" />
+
 Version 3.4 is the release where a picture exists. The library already kept a
 record of how a document changed; now that record carries what a picture
 needs, and two flags draw it. `--layers` renders a piece with its drafts
@@ -64,6 +66,8 @@ the specification is `skills/craft-v3.4-spec.md`; the implementations are the
 `draft-provenance` and `text-layers` skills. The worked example is the ten
 drafts of an essay called "Rupture," rendered at
 <https://slopshops.ai/essay-04-rupture/layers/>.
+
+<img width="1536" height="2600" alt="peek-top" src="https://github.com/user-attachments/assets/d0da0927-ad95-4937-800d-5edf4f42a6b8" />
 
 **Which renderer.** V3.4 draws the drafts, not the grid. The grid's own
 picture, described below and promised since version three, is still not built.
